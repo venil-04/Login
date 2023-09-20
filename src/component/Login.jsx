@@ -39,10 +39,13 @@ function Login() {
                 <label className="block text-gray-700 text-sm font-bold mb-2" for="password">Password:</label>
                 <input className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" value={user.password} type="password" id="password" name="password" onChange={handleChange} required/>
             </div>
+            <div className='flex justify-center items-center'>
+                <button className='bg-blue-500 text-white font-medium p-2 rounded-lg px-10'>Sign Up</button>
+            </div>
            
             <div className="mb-4 text-center ">
                 {/* <button className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600" type="submit">Login</button> */}
-                <span className='text-sm font-medium'>Login With Google For</span>
+                
             </div>           
             <GoogleSignIn/>
         </form>

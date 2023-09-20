@@ -72,7 +72,7 @@ const VerifyCerti = () => {
       {org.orgtype === "Government Organization" ? (
         <div className="relative flex space-x-5 mt-5 ">
           <div className="bg-blue-400 p-4 rounded-lg text-white font-medium">
-            Select Organization Type
+            Select Document Type
           </div>
           <select
             className="block appearance-none w-[20%] bg-white border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
@@ -101,7 +101,7 @@ const VerifyCerti = () => {
       ) : (
         <div className="relative flex space-x-5 mt-5 ">
           <div className="bg-blue-400 p-4 rounded-lg text-white font-medium">
-            Select Organization Type
+            Select Document Type
           </div>
           <select
             className="block appearance-none w-[20%] bg-white border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"

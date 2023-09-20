@@ -39,7 +39,7 @@ const GoogleSignIn = () => {
     <div className="space-x-4 flex justify-center">
      
       <button className="bg-blue-600 px-8 py-2 rounded-lg text-white font-medium" type="" onClick={()=>{signInWithGoogle()}}>
-        Login
+        Login with Google
       </button>
     </div>
   );
