@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
-import Cookies from 'js-cookie';
-import Navbar from './Navbar';
-import withAuth from '../layout/withAuth';
-import Org from './Org';
-import Gov from './Gov';
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useEffect } from 'react'
+import Cookies from 'js-cookie'
+import Navbar from './Navbar'
 
-const GenerateCerti = (props) => {
+
+const Org = () => {
 
     const user = JSON.parse(Cookies.get("generate-user"))
     const accessToken = Cookies.get('generate-user-access-token');
@@ -14,16 +13,17 @@ const GenerateCerti = (props) => {
 
     useEffect(()=>{
         if(!accessToken){    
-          navigate('/')
+          navigate('/login')
         }
       },[])
 
     const handelClick = ()=>{
         navigate('/GenerateCertificate/form')
     }
-   
 
+    
   return (
+
     <div className='bg-purple-200'>
         <Navbar photourl={user.photo}/>
 
@@ -37,7 +37,7 @@ const GenerateCerti = (props) => {
 
           <div className="past-contract flex-col space-x-10 h-96 mt-10 justify-center items-center bg-purple-300 m-5 rounded-lg">
             <div className='text-center text-4xl font-medium p-16 pb-0 underline'>Current Smart Contracts</div>
-            <div className='text-center pb-16'>For Institution and Private Organizations</div>
+            <div className='text-center'>For Institution and Private Organizations</div>
 
             <div className='flex space-x-40 justify-center items-center h-[100%]'>
 
@@ -53,7 +53,9 @@ const GenerateCerti = (props) => {
           
         </div>
     </div>
+      
+    
   )
 }
 
-export default  withAuth(GenerateCerti,true)
+export default Org

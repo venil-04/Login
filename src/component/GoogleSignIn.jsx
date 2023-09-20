@@ -9,7 +9,7 @@ const GoogleSignIn = () => {
   const navigate = useNavigate();
 
 
-  const signInWithGoogle = async (generate) => {
+  const signInWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
 
     try {
@@ -22,24 +22,12 @@ const GoogleSignIn = () => {
         photo: res.user.photoURL,
       };
       // store credential for person who generate certificate
-
-      if(generate){
-
         Cookies.set("generate-user-access-token", accessToken, { expires: 7 });
         Cookies.set("generate-user", JSON.stringify(profile));
-      }
-      // credential for verification
-      else{
+     
+      // navigate to the home page after login
+     navigate('/')
 
-        Cookies.set("verify-user-access-token", accessToken, { expires: 7 });
-        Cookies.set("verify-user", JSON.stringify(profile));
-
-      }
-      // navigate to the generate certifiaction page after login
-      if(generate)
-      navigate("/GenerateCertificate");
-      else
-      navigate("/verifyCerti")
     } catch (error) {
       console.error(error);
     }
@@ -49,11 +37,9 @@ const GoogleSignIn = () => {
     // <button onClick={signInWithGoogle}></button>
     // <img src={'https://www.freepnglogos.com/uploads/google-logo-png/google-logo-icon-png-transparent-background-osteopathy-16.png'} alt="" srcset="" className="h-10 w-10" onClick={signInWithGoogle}/>
     <div className="space-x-4 flex justify-center">
-      <button className="bg-blue-600 p-3 rounded-lg text-white font-medium" type="" onClick={()=>{signInWithGoogle(true)} }>
-        certificate generation
-      </button>
-      <button className="bg-blue-600 p-3 rounded-lg text-white font-medium" type="" onClick={()=>{signInWithGoogle(false)}}>
-        verify certificate
+     
+      <button className="bg-blue-600 px-8 py-2 rounded-lg text-white font-medium" type="" onClick={()=>{signInWithGoogle()}}>
+        Login
       </button>
     </div>
   );
